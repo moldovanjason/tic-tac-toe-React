@@ -1,3 +1,43 @@
+
+.game-row1 {
+    display:flex;
+    justify-content: center;
+    font-size:22px;
+    margin:0 auto;
+    background:rgb(46, 46, 46);
+}
+
+// .game-row2 {
+//     display:flex;
+//     justify-content: center;
+//     font-size:1em;
+//     margin:0 auto;
+//     background:green;
+// }
+
+// .game-row3 {
+//     display:flex;
+//     justify-content: center;
+//     font-size:1em;
+//     margin:0 auto;
+//     background:red;
+// }
+
+.cell {
+    background: rgba(148, 148, 148, 0.5);
+    border:1px solid black;
+    width:100px;
+    height:100px;
+    padding-top:35px;
+}
+
+
+
+
+
+
+
+
 @import "~bootstrap/scss/bootstrap.scss";
 
 /* 
