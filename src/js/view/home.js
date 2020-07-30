@@ -19,23 +19,14 @@ export class Home extends React.Component {
 			cell9: ""
 		};
 	}
-
 	handleClick = cellId => {
-		if (cellId === 1) {
-			if (this.state.cell1 === "") {
-				this.setState({ cell1: this.state.nextUserInput });
-				this.setState({
-					nextUserInput: this.state.nextUserInput === "X" ? "O" : "X"
-				});
-			}
-		}
-		if (cellId === 2) {
-			if (this.state.cell2 === "") {
-				this.setState({ cell2: this.state.nextUserInput });
-				this.setState({
-					nextUserInput: this.state.nextUserInput === "X" ? "O" : "X"
-				});
-			}
+		let obj = {};
+		obj[cellId] = this.state.nextUserInput;
+		if (this.state[cellId] === "") {
+			this.setState(obj);
+			this.setState({
+				nextUserInput: this.state.nextUserInput === "X" ? "O" : "X"
+			});
 		}
 	};
 
