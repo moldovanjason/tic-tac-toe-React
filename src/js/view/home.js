@@ -6,7 +6,8 @@ export class Home extends React.Component {
 		super();
 		this.state = {
 			player: null,
-			square: null,
+			winner: null,
+            message: "",
 			nextUserInput: "X",
 			allCells: ["", "", "", "", "", "", "", "", ""],
 			player1: ["", "", "", "", "", "", "", "", ""], //X//
@@ -24,7 +25,6 @@ export class Home extends React.Component {
 		};
 	}
 
-        let currentCells="";
 	handleClick = cellId => {
 		var currentPlayer1 = this.state.allCells.map(
 			(element, i) =>
@@ -43,8 +43,8 @@ export class Home extends React.Component {
 			);
 		this.setState.state({ player1: currentCells1 });
 
-		if (this.state.nextUserInput === "X")
-			var currentPlayer1 = this.state.player2.map(
+		if (this.state.nextUserInput === "O")
+			var currentPlayer2 = this.state.player2.map(
 				(element, i) =>
 					this.state.player2[i] === "" && cellId === i
 						? this.setState.nextUserInput
@@ -57,12 +57,40 @@ export class Home extends React.Component {
 		this.setState({
 			nextUserInput: this.state.nextUserInput === "X" ? "O" : "X"
 		});
-		// winnterCheck(currentCells);
-	};
+        this.winnterCheck(currentCells);
+        
+
+    };
+
+
+    winnerCheck=currentCells =>{
+        this.state.winning.forEach(winningCombo=>{
+            var winner = null;
+            let counter = 0;
+            for(let i=0;i<winningCombo.length.i++){
+                if(winningCombo[i]==1){
+                    if(currentCells[i]==this.state.nextUserInput){
+                         counter++; 
+                         if (counter>2) {
+                            this.setState({
+                                winner:this.state.nextUserInput
+                            });
+                            this.setState({message:`${this.state.nextPlayerInput} has won the game!!!`});
+                            this.setState({
+                                allCells: ["", "", "", "", "", "", "", "", ""]
+                            });
+                        }
+                    }
+                }
+            }
+        })
+    }
+
 
 	render() {
 		return (
 			<div className="page text-center mt-5">
+                <div>{this.state.message}</div>
 				<div className="game-row1">
 					<div className="cell" onClick={() => this.handleClick(0)}>
 						{this.state.allCells[0]}
