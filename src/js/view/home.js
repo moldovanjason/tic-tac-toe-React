@@ -9,6 +9,8 @@ export class Home extends React.Component {
 			square: null,
 			nextUserInput: "X",
 			allCells: ["", "", "", "", "", "", "", "", ""],
+			player1: ["", "", "", "", "", "", "", "", ""], //X//
+			player2: ["", "", "", "", "", "", "", "", ""], //O//
 			winning: [
 				[1, 1, 1, 0, 0, 0, 0, 0, 0],
 				[0, 0, 0, 1, 1, 1, 0, 0, 0],
@@ -21,17 +23,40 @@ export class Home extends React.Component {
 			]
 		};
 	}
-	handleClick = cellId => {
-		var currentCells = this.state.allCells.map(
-			(element, i) => (cellId === i ? this.state.nextUserInput : element)
-		);
-		// currentCells is identifying the cell that is clicked. compare each index to the cell clicked and assigned new value from the nextUserInput
 
+        let currentCells="";
+	handleClick = cellId => {
+		var currentPlayer1 = this.state.allCells.map(
+			(element, i) =>
+				this.state.allCells[i] === "" && cellId === i
+					? this.setState.nextUserInput
+					: element
+		);
+		this.setState.state({ allCells: currentCells });
+
+		if (this.state.nextUserInput === "X")
+			var currentPlayer1 = this.state.player1.map(
+				(element, i) =>
+					this.state.player1[i] === "" && cellId === i
+						? this.setState.nextUserInput
+						: element
+			);
+		this.setState.state({ player1: currentCells1 });
+
+		if (this.state.nextUserInput === "X")
+			var currentPlayer1 = this.state.player2.map(
+				(element, i) =>
+					this.state.player2[i] === "" && cellId === i
+						? this.setState.nextUserInput
+						: element
+			);
+		this.setState.state({ player2: currentCells2 });
+		// currentCells is identifying the cell that is clicked.
+		// compare each index to the cell clicked and assigned new value from the nextUserInput
 		this.setState({ allCells: currentCells });
 		this.setState({
 			nextUserInput: this.state.nextUserInput === "X" ? "O" : "X"
 		});
-
 		// winnterCheck(currentCells);
 	};
 
