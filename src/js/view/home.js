@@ -35,26 +35,6 @@
             );
             this.setState({ allCells: currentCells });
 
-            // if (this.state.nextUserInput === "X")
-            // 	var currentPlayer1 = this.state.player1.map(
-            // 		(element, i) =>
-            // 			this.state.player1[i] === "" && cellId === i
-            // 				? this.setState.nextUserInput
-            // 				: element
-            // 	);
-            // this.setState.state({ player1: currentCells1 });
-
-            // if (this.state.nextUserInput === "O")
-            // 	var currentPlayer2 = this.state.player2.map(
-            // 		(element, i) =>
-            // 			this.state.player2[i] === "" && cellId === i
-            // 				? this.setState.nextUserInput
-            // 				: element
-            // 	);
-            // this.setState.state({ player2: currentCells2 });
-            // currentCells is identifying the cell that is clicked.
-            // compare each index to the cell clicked and assigned new value from the nextUserInput
-            // this.setState({ allCells: currentCells });
             this.setState({
                 nextUserInput: this.state.nextUserInput === "X" ? "O" : "X"
             });
